@@ -1,6 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
+// box icon
+import "boxicons";
+
 // fontFamily
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
