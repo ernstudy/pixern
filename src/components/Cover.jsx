@@ -8,6 +8,7 @@ export default function Cover() {
           <span className="logo">PixErn </span>- Download free images
         </h1>
         <div className="search-bar">
+          <i class="bx bx-search-alt-2"></i>
           <input type="text" name="" placeholder="Search for free images..." />
         </div>
 
