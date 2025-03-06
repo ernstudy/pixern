@@ -109,12 +109,13 @@ body {
 
 /*---- categories button ----*/
 .categories {
+  margin-top: 1rem;
 }
 
 .categories button {
   font-size: var(--text-size);
-  background-color: var(--gray-color-100);
-  padding: 5px 15px;
+  background-color: var(--gray-color-300);
+  padding: 3px 12px;
   border-radius: 10px;
   cursor: pointer;
   border: none;
@@ -125,7 +126,57 @@ body {
   background-color: var(--gray-color-200);
 }
 
-.main h2 {
+/*---- images display ---- */
+
+.image-display {
+  padding: 2rem 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.image-display h2 {
   font-size: 16px;
   font-weight: 300;
+}
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.images-container .images {
+  background-color: #161618;
+  width: 100%;
+  max-width: 300px;
+  height: 250px;
+}
+
+/* button navigation */
+.prev_next-navigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* footer and copyright */
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--gray-color-100);
+  padding: 10px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: var(--gray-color-300);
+}
+
+.copyright a {
+  color: var(--gray-color-100);
 }
