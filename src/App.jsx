@@ -5,13 +5,13 @@ import "./App.css";
 
 // components
 import Cover from "./components/Cover";
-import Main from "./components/Main";
+import ImageDisplay from "./components/ImageDisplay";
 
 export default function App() {
   return (
     <>
       <Cover />
-      <Main />
+      <ImageDisplay />
     </>
   );
 }
