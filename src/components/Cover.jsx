@@ -7,13 +7,9 @@ export default function Cover() {
         <h1 className="title">
           <span className="logo">PixErn </span>- Download free images
         </h1>
-
-        <input
-          type="text"
-          name=""
-          className="input-text"
-          placeholder="Search for free images..."
-        />
+        <div className="search-bar">
+          <input type="text" name="" placeholder="Search for free images..." />
+        </div>
 
         <CategoryButton />
       </div>
