@@ -98,17 +98,22 @@ body {
   box-shadow: 1px 1px 10px 0px var(--main-color);
 }
 
+/*---- categories button ----*/
 .categories {
-  display: flex;
-  gap: 1.5rem;
 }
 
 .categories button {
   font-size: var(--text-size);
-  background-color: var(--gray-color-900);
+  background-color: var(--gray-color-100);
   padding: 5px 15px;
   border-radius: 10px;
   cursor: pointer;
+  border: none;
+  margin: 10px;
+}
+
+.categories button:hover {
+  background-color: var(--gray-color-200);
 }
 
 .main h2 {
