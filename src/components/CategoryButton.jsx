@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SugButton() {
+export default function CategoryButton() {
   const hundleCategories = (e) => {
     const text = e.target.textContent;
     console.log(text);

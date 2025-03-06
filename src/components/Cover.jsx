@@ -1,7 +1,5 @@
 import React from "react";
-import SugButton from "./SugButton";
-import { Container, TextField } from "@mui/material";
-
+import CategoryButton from "./CategoryButton";
 export default function Cover() {
   return (
     <div className="cover">
@@ -17,7 +15,7 @@ export default function Cover() {
           placeholder="Search for free images..."
         />
 
-        <SugButton />
+        <CategoryButton />
       </div>
     </div>
   );
