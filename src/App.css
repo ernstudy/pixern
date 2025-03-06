@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+
+  text-decoration: none;
+  outline: none;
+}
+
+:root {
+  /* main color  */
+  --main-color-100: #ffe9ab;
+  --main-color-200: #ffe089;
+  --main-color-300: #ffd767;
+  --main-color-400: #ffce45;
+  --main-color: #ffc524;
+  --main-color-600: #e9ab00;
+  --main-color-700: #e0a400;
+  --main-color-800: #e0a400;
+  --main-color-900: #b38300;
+
+  /* gray color  */
+
+  --gray-color-100: #e1e1e2;
+  --gray-color-200: #cccccf;
+  --gray-color-300: #a4a4a9;
+  --gray-color-400: #909096;
+  --gray-color-500: #7c7c83;
+  --gray-color-600: #69696f;
+  --gray-color-700: #56565b;
+  --gray-color-800: #434347;
+  --gray-color-900: #161618;
+
+  /* natural color  */
+
+  /* font-size  */
+  --text-size: 18px;
+  --title-size: 32px;
+  --item-size: 24px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(36, 36, 36);
+  color: #fff;
+}
+
+.cover {
+  width: 100%;
+  min-height: 35vh;
+  background-color: rgb(15, 15, 15);
+  text-align: center;
+  padding: 5rem 15px 0;
+}
+
+.main {
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 15px;
+}
+
+.cover-box {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  flex-wrap: wrap;
+}
+
+.cover .title {
+  font-size: var(--title-size);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.input-text {
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  padding: 7px 10px;
+  background-color: var(--gray-color-900);
+  box-shadow: 1px 1px 10px -2px var(--main-color);
+  width: ;
+  color: #fff;
+  font-size: var(--text-size);
+  transition: 0.5s all;
+  margin-bottom: 1.5rem;
+}
+
+.input-text:focus {
+  box-shadow: 1px 1px 10px 0px var(--main-color);
+}
+
+.button-box {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.sug-button {
+  font-size: var(--text-size);
+  background-color: var(--gray-color-900);
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.main h2 {
+  font-size: 16px;
+  font-weight: 300;
+}
