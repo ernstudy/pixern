@@ -98,12 +98,12 @@ body {
   box-shadow: 1px 1px 10px 0px var(--main-color);
 }
 
-.button-box {
+.categories {
   display: flex;
   gap: 1.5rem;
 }
 
-.sug-button {
+.categories button {
   font-size: var(--text-size);
   background-color: var(--gray-color-900);
   padding: 5px 15px;
