@@ -7,15 +7,19 @@ import "./App.css";
 import Cover from "./components/Cover";
 import ImageDisplay from "./components/ImageDisplay";
 import CopyRigthComponent from "./components/CopyRigthComponent";
-import { InputProvider } from "./context/InputContext";
 
 export default function App() {
+  const searchImage = (inputText) => {
+    console.log("loarding...", inputText);
+    // console.log("loarding...2", text);
+  };
+
   return (
-    <InputProvider>
-      <Cover />
+    <>
+      <Cover onSearch={searchImage} />
       <ImageDisplay />
 
       <CopyRigthComponent />
-    </InputProvider>
+    </>
   );
 }
