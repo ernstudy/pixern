@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InputContext } from "../context/InputContext";
 
-export default function CategoryButton() {
+export default function CategoryButton({ onSearch }) {
+  const { setInputValue } = useContext(InputContext);
+
   const hundleCategories = (e) => {
     const text = e.target.textContent;
-    console.log(text);
+    setInputValue(text);
+    onSearch(text);
   };
+
+  // const onSearch = () => {
+
+  // }
 
   const buttonText = ["dog", "cat", "bird", "nature", "floor"];
   return (
