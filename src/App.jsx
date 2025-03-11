@@ -12,7 +12,8 @@ import { InputContext } from "./context/InputContext";
 export default function App() {
   const per_page = 10;
   const [imageData, setImageData] = useState(null);
-  const { numOfpages } = useContext(InputContext);
+  const { numOfpages, setNumOfPages, inputValue, setButtonPages } =
+    useContext(InputContext);
 
   const API_URL = import.meta.env.VITE_API_URL;
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -21,14 +22,17 @@ export default function App() {
     searchImage();
   }, [numOfpages]);
 
+  // reset button pages to 5 and number of pages to 1
+  useEffect(() => {
+    setButtonPages(5);
+    setNumOfPages(1);
+  }, [inputValue]);
+
   useEffect(() => {
     searchImage();
   }, []);
 
   const searchImage = async (inputText = "random") => {
-    console.log(API_KEY);
-    console.log(API_URL);
-
     try {
       const data = await fetch(
         `${API_URL}?query=${inputText}&page=${numOfpages}&per_page=${per_page}&client_id=${API_KEY}`
