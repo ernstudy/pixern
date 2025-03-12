@@ -21,7 +21,7 @@ export default function CategoryButton({ onSearch }) {
     sessionStorage.setItem("item", text);
   };
 
-  const buttonText = ["dog", "cat", "bird", "nature", "floor"];
+  const buttonText = ["dog", "cat", "bird", "nature", "flower"];
   return (
     <div className="categories">
       {buttonText.map((text, idx) => (

@@ -6,7 +6,7 @@ export default function Cover({ onSearch }) {
   return (
     <div className="cover">
       <h1 className="title">
-        <span className="logo">PixErn </span>- Download free images
+        <span className="logo">PixErn </span>- Search and Download images
       </h1>
 
       <SearchBar onSearch={onSearch} />
