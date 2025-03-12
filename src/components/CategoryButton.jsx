@@ -8,6 +8,12 @@ export default function CategoryButton({ onSearch }) {
     const text = e.target.textContent;
     setInputValue(text);
     onSearch(text);
+    saveInputValue(text);
+  };
+
+  // Stores the button text in localStorage
+  const saveInputValue = (text) => {
+    sessionStorage.setItem("item", text);
   };
 
   // const onSearch = () => {
