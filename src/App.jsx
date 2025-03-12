@@ -30,23 +30,19 @@ export default function App() {
   }, [numOfpages]);
 
   useEffect(() => {
-    // reset button pages to 5 and number of pages to 1
-    setButtonPages(5);
-    setNumOfPages(1);
-  }, [inputValue]);
-
-  useEffect(() => {
-    // When the page refresh, change the value of the text to 'random'
+    // When the page refreshes, change the value of the text to 'random'
     searchImage("random");
 
+    // When the page refreshes, save in session storage the default value '' from input value
+    setInputValue("");
     sessionStorage.setItem("item", inputValue);
   }, []);
 
   // get input value from session storage
   const getInputValue = () => {
     const item = sessionStorage.getItem("item");
-    if (!item) return;
-    console.log("new value from session storage", item);
+    if (item == "") return;
+    console.log("get the value from session storage:", item);
     searchImage(item);
     if (inputValue == "") {
       setInputValue(item);
@@ -55,6 +51,7 @@ export default function App() {
 
   // handle image search
   const searchImage = async (inputText) => {
+    console.log("searching for:", inputText);
     try {
       const data = await fetch(
         `${API_URL}?query=${inputText}&page=${numOfpages}&per_page=${per_page}&client_id=${API_KEY}`

@@ -4,8 +4,6 @@ import { Download } from "@mui/icons-material";
 import { colors, styled } from "@mui/material";
 
 export default function ImageDisplay({ imageData }) {
-  console.log(imageData);
-
   const StyledDownloadButton = styled(Download)({
     background: "#ffc524",
     borderRadius: "5px",
@@ -71,7 +69,7 @@ export default function ImageDisplay({ imageData }) {
           imageData.map((image) => (
             <div className="image-box" key={image.id}>
               <div className="image">
-                <img src={image.urls.full} alt={image.alt_description} />
+                <img src={image.urls.small} alt={image.alt_description} />
               </div>
               <div className="image-info">
                 <h2>{image.description || image.alt_description}</h2>
