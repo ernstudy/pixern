@@ -50,7 +50,7 @@ body {
 
 .cover {
   min-height: 40vh;
-  background-color: black;
+  background: linear-gradient(to right, #0f0f0f, #2f2f30, #0f0f0f);
   padding: 1rem 10px;
   display: flex;
   flex-direction: column;
