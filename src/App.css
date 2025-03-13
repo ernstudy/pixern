@@ -223,10 +223,10 @@ body {
   display: flex;
   row-gap: 2rem;
   column-gap: 3rem;
-  justify-content: center;
+  justify-content: flex-end;
   max-width: 900px;
   width: 100%;
-  background-color: var(--bg-color);
+  background: linear-gradient(to top, #0f0f0f, #252526, #0f0f0f);
   padding: 2rem 16px;
   border-radius: 10px;
   overflow-y: auto;
@@ -328,6 +328,7 @@ footer {
     flex-direction: column-reverse;
     align-items: center;
     max-height: 100%;
+    padding: 3rem 16px;
   }
 
   .modal-image-buttons {
