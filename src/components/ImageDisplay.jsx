@@ -5,7 +5,8 @@ import { Button, colors, styled } from "@mui/material";
 import GalleryImageModal from "./GalleryImageModal";
 
 export default function ImageDisplay({ imageData }) {
-  const StyledDownloadButton = styled(Download)({
+  // download button style
+  const StyledDownloadButton = styled(Button)({
     background: "#ffc524",
     borderRadius: "5px",
     color: "#434347",
@@ -16,9 +17,14 @@ export default function ImageDisplay({ imageData }) {
     },
   });
 
+  // ===== download image  =======
+
+  const [downloading, setDownloading] = useState(false);
+  const [isID, setIsID] = useState(null);
   const handleDownload = async (image) => {
     const accessKey = import.meta.env.VITE_API_KEY;
     const photoId = image.id;
+    console.log("unique image ID:", photoId);
     try {
       // Solicitar la imagen como blob
       const response = await fetch(
@@ -29,10 +35,14 @@ export default function ImageDisplay({ imageData }) {
           },
         }
       );
+      // downloading
+      setIsID(photoId);
+      setDownloading(true);
 
       console.log("response", response);
 
       if (!response.ok) {
+        setDownloading(false);
         throw new Error("error.");
       }
 
@@ -44,20 +54,28 @@ export default function ImageDisplay({ imageData }) {
       const imageResponse = await fetch(downloadData.url);
       const blob = await imageResponse.blob();
 
+      // remove loading
+      if (blob) {
+        setDownloading(false);
+      }
+
       console.log("blod", blob);
 
       // Crear un enlace temporal para descargar la imagen
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "imagen_descargada.jpg"; // Nombre del archivo
+      link.download = `${image.alt_description || "image"}-PixErn.jpg`; // Nombre del archivo
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
 
       // Liberar la memoria del objeto blob
       URL.revokeObjectURL(link.href);
+
+      // downloading
     } catch (error) {
       console.error("Ocurrió un error:", error.message);
+      setDownloading(false);
     }
   };
 
@@ -69,6 +87,7 @@ export default function ImageDisplay({ imageData }) {
     console.log("clicked on this image => :", image);
     setImageDetails(image);
     setActiveModal(true);
+    document.body.style = "overflow: hidden;";
   };
 
   return (
@@ -78,17 +97,18 @@ export default function ImageDisplay({ imageData }) {
       <div className="images-container">
         {imageData &&
           imageData.map((image) => (
-            <div
-              className="image-box"
-              key={image.id}
-              onClick={() => showModal(image)}
-            >
-              <div className="image">
+            <div className="image-box" key={image.id}>
+              <div className="image" onClick={() => showModal(image)}>
                 <img src={image.urls.small} alt={image.alt_description} />
               </div>
               <div className="image-info">
                 <h2>{image.description || image.alt_description}</h2>
-                <StyledDownloadButton onClick={() => handleDownload(image)} />
+                <StyledDownloadButton
+                  loading={isID == image.id && downloading}
+                  onClick={() => handleDownload(image)}
+                >
+                  <Download />
+                </StyledDownloadButton>
               </div>
             </div>
           ))}
@@ -98,6 +118,10 @@ export default function ImageDisplay({ imageData }) {
         imageDetails={imageDetails}
         activeModal={activeModal}
         setActiveModal={setActiveModal}
+        handleDownload={handleDownload}
+        downloading={downloading}
+        setDownloading={setDownloading}
+        isID={isID}
       />
 
       <PrevNextNavigator />
