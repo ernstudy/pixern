@@ -222,8 +222,12 @@ body {
   cursor: pointer;
   color: var(--gray-color-100);
   opacity: 0.2;
+  transition: all 0.5s;
 }
 
+.pages .page:hover {
+  opacity: 0.5;
+}
 .pages .page.active {
   background-color: var(--gray-color-900);
   color: var(--gray-color-100);
