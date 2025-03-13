@@ -30,20 +30,23 @@ export default function App() {
   }, [numOfpages]);
 
   useEffect(() => {
-    // When the page refreshes, change the value of the text to 'random'
-    searchImage("random");
-
     // When the page refreshes, save in session storage the default value '' from input value
     setInputValue("");
     sessionStorage.setItem("item", inputValue);
+    // When the page refreshes, change the value of the text to 'random'
+    searchImage("random");
   }, []);
 
   // get input value from session storage
   const getInputValue = () => {
     const item = sessionStorage.getItem("item");
-    if (item == "") return;
-    console.log("get the value from session storage:", item);
+    // if the item form session storage is empty '' return with the preview default value 'random'
+    // don't continue, stop the rest of the code from executing
+    if (item == "") return searchImage("random");
+    //but if the item contains a value, call searchImage with this specific value
+    console.log("item value from session storage:", item);
     searchImage(item);
+    // and set this value in the inputValue state, to show it in the search bar
     if (inputValue == "") {
       setInputValue(item);
     }
