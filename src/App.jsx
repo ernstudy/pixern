@@ -27,6 +27,10 @@ export default function App() {
     console.log("number of pages changes to:", numOfpages);
     // When the page number changes, Get the value form SessionStorage
     getInputValue();
+
+    // change the deault title to name app, PixErn
+
+    document.title = `PixErn - ${sessionStorage.getItem("item")}`;
   }, [numOfpages]);
 
   useEffect(() => {
@@ -35,7 +39,14 @@ export default function App() {
     sessionStorage.setItem("item", inputValue);
     // When the page refreshes, change the value of the text to 'random'
     searchImage("random");
+    // change the deault title to name app, PixErn
+    document.title = "PixErn - Download images for free";
   }, []);
+
+  useEffect(() => {
+    // change the deault title to name app, PixErn when the input value changes
+    document.title = `PixErn - ${inputValue}`;
+  }, [inputValue]);
 
   // get input value from session storage
   const getInputValue = () => {
