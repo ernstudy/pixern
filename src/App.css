@@ -30,23 +30,27 @@
   --gray-color-800: #434347;
   --gray-color-900: #161618;
 
+  /* background-color  */
+  --bg-color: #0f0f0f;
+
   /* natural color  */
 
   /* font-size  */
   --text-size: 18px;
   --title-size: 32px;
+  --subtitle-size: clamp(28px, 3vw, 20px);
   --item-size: 24px;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: rgb(36, 36, 36);
+  background-color: var(--gray-color-900);
   color: #fff;
 }
 
 .cover {
   min-height: 40vh;
-  background-color: rgb(15, 15, 15);
+  background-color: black;
   padding: 1rem 10px;
   display: flex;
   flex-direction: column;
@@ -148,7 +152,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, auto));
   grid-auto-flow: auto; */
   gap: 0.5rem;
-  min-height: 100vh;
+  min-height: 70vh;
   columns: 5 200px;
 }
 
@@ -171,6 +175,7 @@ body {
   transition: all 0.5s;
   align-items: center;
   gap: 0.3rem;
+  z-index: 100;
 }
 
 .image-box:hover .image-info {
@@ -194,10 +199,72 @@ body {
 
 .images-container .image img {
   width: 100%;
-  height: 100%;
 }
 
-/* button navigation */
+/* ======== image gallery modal ======== */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.626);
+  visibility: collapse;
+  z-index: 999;
+}
+
+.gallery-modal.active {
+  visibility: visible;
+}
+
+.modal-box {
+  display: flex;
+  row-gap: 2rem;
+  column-gap: 3rem;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 2rem 16px;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 100%;
+  max-height: 95vh;
+  scrollbar-width: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  flex-wrap: nowrap;
+}
+.image-and-title {
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-image-title h2 {
+  font-size: var(--subtitle-size);
+  color: var(--gray-color-100);
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+
+.modal-image img {
+  width: 100%;
+}
+
+.modal-image-buttons {
+  column-gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: max-content;
+  width: auto;
+}
+
+/* ======= Navigattion Buttons ======= */
 .prev_next-navigator {
   display: flex;
   justify-content: center;
@@ -254,4 +321,18 @@ footer {
 
 .copyright a {
   color: var(--gray-color-100);
+}
+
+@media (max-width: 760px) {
+  .modal-box {
+    flex-direction: column-reverse;
+    align-items: center;
+    max-height: 100%;
+  }
+
+  .modal-image-buttons {
+    max-width: 500px;
+    width: 100%;
+    justify-content: end;
+  }
 }
