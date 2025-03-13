@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PrevNextNavigator from "./PrevNextNavigator";
-import { Download } from "@mui/icons-material";
-import { colors, styled } from "@mui/material";
+import { Close, Download } from "@mui/icons-material";
+import { Button, colors, styled } from "@mui/material";
+import GalleryImageModal from "./GalleryImageModal";
 
 export default function ImageDisplay({ imageData }) {
   const StyledDownloadButton = styled(Download)({
@@ -60,6 +61,16 @@ export default function ImageDisplay({ imageData }) {
     }
   };
 
+  // show image modal
+
+  const [activeModal, setActiveModal] = useState(false);
+  const [imageDetails, setImageDetails] = useState();
+  const showModal = (image) => {
+    console.log("clicked on this image => :", image);
+    setImageDetails(image);
+    setActiveModal(true);
+  };
+
   return (
     <div className="image-display">
       {/* <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> */}
@@ -67,7 +78,11 @@ export default function ImageDisplay({ imageData }) {
       <div className="images-container">
         {imageData &&
           imageData.map((image) => (
-            <div className="image-box" key={image.id}>
+            <div
+              className="image-box"
+              key={image.id}
+              onClick={() => showModal(image)}
+            >
               <div className="image">
                 <img src={image.urls.small} alt={image.alt_description} />
               </div>
@@ -78,6 +93,12 @@ export default function ImageDisplay({ imageData }) {
             </div>
           ))}
       </div>
+
+      <GalleryImageModal
+        imageDetails={imageDetails}
+        activeModal={activeModal}
+        setActiveModal={setActiveModal}
+      />
 
       <PrevNextNavigator />
     </div>
