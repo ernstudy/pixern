@@ -45,7 +45,9 @@ export default function App() {
 
   useEffect(() => {
     // change the deault title to name app, PixErn when the input value changes
-    document.title = `PixErn - ${inputValue}`;
+    document.title = `PixErn - ${
+      inputValue == "" ? "Download images for free" : inputValue
+    }`;
   }, [inputValue]);
 
   // get input value from session storage
@@ -75,6 +77,8 @@ export default function App() {
 
       const response = await data.json();
       setImageData(response.results);
+      // print in  console
+      console.log("data api", response.results);
     } catch (error) {
       console.log(error);
     }

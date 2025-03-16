@@ -28,7 +28,7 @@ export default function ImageDisplay({ imageData }) {
     try {
       // Solicitar la imagen como blob
       const response = await fetch(
-        `https://api.unsplash.com/photos/${photoId}/download`,
+        `https://api.unsplash.com/photos/${photoId}/download?w=400&q=75`,
         {
           headers: {
             Authorization: `Client-ID ${accessKey}`,
@@ -99,7 +99,7 @@ export default function ImageDisplay({ imageData }) {
           imageData.map((image) => (
             <div className="image-box" key={image.id}>
               <div className="image" onClick={() => showModal(image)}>
-                <img src={image.urls.small} alt={image.alt_description} />
+                <img src={image.urls.thumb} alt={image.alt_description} />
               </div>
               <div className="image-info">
                 <h2>{image.description || image.alt_description}</h2>
