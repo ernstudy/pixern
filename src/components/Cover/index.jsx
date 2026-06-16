@@ -6,8 +6,9 @@ export default function Cover() {
   return (
     <div className={styles.cover}>
       <h1 className={styles.title}>
-        <span className={styles.logo}>PixErn </span>- Search and Download free
-        images
+        <span className={styles.logo}>PixErn</span>
+        <br />
+        Discover & Download Free Stock Images
       </h1>
 
       <SearchBar />
