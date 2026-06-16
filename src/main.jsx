@@ -12,12 +12,12 @@ import "@fontsource/roboto/700.css";
 
 // component
 import App from "./App.jsx";
-import { InputProvider } from "./context/InputContext.jsx";
+import { ImagesProvider } from "./context/ImagesContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <InputProvider>
+    <ImagesProvider>
       <App />
-    </InputProvider>
-  </StrictMode>
+    </ImagesProvider>
+  </StrictMode>,
 );
