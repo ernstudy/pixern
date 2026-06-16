@@ -1,0 +1,22 @@
+.cover {
+  min-height: 40vh;
+  background: linear-gradient(to right, #0f0f0f, #2f2f30, #0f0f0f);
+  padding: 1rem 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: var(--title-size);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.logo {
+  color: var(--main-color);
+  font-weight: 700;
+}

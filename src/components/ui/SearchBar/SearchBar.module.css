@@ -1,0 +1,33 @@
+.searchBar {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.searchBar input {
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  background-color: var(--gray-color-900);
+  box-shadow: 1px 1px 8px -2px var(--main-color);
+  width: 100%;
+  color: #fff;
+  font-size: var(--text-size);
+  transition: 0.5s all;
+  padding: 7px 10px;
+}
+
+.searchBar input:focus {
+  box-shadow: 1px 1px 10px 0px var(--main-color);
+}
+
+.icon {
+  fill: #e0a400;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 18px;
+  cursor: pointer;
+}

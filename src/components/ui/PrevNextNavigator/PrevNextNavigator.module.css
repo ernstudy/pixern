@@ -1,0 +1,37 @@
+.prevNextNavigator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.page {
+  background-color: var(--gray-color-900);
+  padding: 2px 4px;
+  font-size: 14px;
+  width: 25px;
+  text-align: center;
+  color: var(--gray-color-100);
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: all 0.5s;
+}
+
+.page:hover {
+  opacity: 0.5;
+}
+
+.active {
+  background-color: var(--gray-color-900);
+  color: var(--gray-color-100);
+  opacity: 1;
+}
+
+.styledButton {
+}

@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--gray-color-100);
+  padding: 10px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: var(--gray-color-300);
+}
+
+.copyright a {
+  color: var(--gray-color-100);
+}

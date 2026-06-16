@@ -2,6 +2,8 @@ import { Close, Download } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 import React from "react";
 import { StyledCloseButton } from "../../utils/styles/StyledCloseButton";
+import styles from "./GalleryImageModal.module.css";
+import clsx from "clsx";
 
 export default function GalleryImageModal({
   imageDetails,
@@ -39,17 +41,21 @@ export default function GalleryImageModal({
   return (
     <>
       {imageData.image && (
-        <div className={activeModal ? "gallery-modal active" : "gallery-modal"}>
-          <div className="modal-box">
-            <div className="image-and-title">
-              <div className="modal-image-title">
+        <div
+          className={clsx(styles.galleryModal, {
+            [styles.active]: activeModal,
+          })}
+        >
+          <div className={styles.modalBox}>
+            <div className={styles.imageAndTitle}>
+              <div className={styles.title}>
                 <h2>{imageData.title}</h2>
               </div>
-              <div className="modal-image">
+              <div className={styles.modalImage}>
                 <img src={imageData.image} alt={imageData.title} />
               </div>
             </div>
-            <div className="modal-image-buttons">
+            <div className={styles.modalImageButtons}>
               <StyledDownloadButton
                 endIcon={<Download />}
                 onClick={() => handleDownload(imageDetails)}

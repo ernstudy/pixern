@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ImagesContext } from "../../../context/ImagesContext";
 import { categories } from "../../../utils/category.utils";
+import styles from "./CategoryButton.module.css";
 
 export default function CategoryButton() {
   const { setQuery, setButtonPages, setNumOfPages } = useContext(ImagesContext);
@@ -16,9 +17,13 @@ export default function CategoryButton() {
   };
 
   return (
-    <div className="categories">
+    <div className={styles.categories}>
       {categories.map((category, idx) => (
-        <button onClick={hundleCategories} key={idx}>
+        <button
+          className={styles.categoryButton}
+          onClick={hundleCategories}
+          key={idx}
+        >
           {category}
         </button>
       ))}

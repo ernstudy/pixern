@@ -6,6 +6,7 @@ import GalleryImageModal from "../GalleryImageModal";
 import { StyledDownloadButton } from "../../utils/styles/StyledDownloadButton";
 import { envConfig } from "../../config/env.config";
 import { ImagesContext } from "../../context/ImagesContext";
+import styles from "./ImageDisplay.module.css";
 
 export default function ImageDisplay() {
   const { images } = useContext(ImagesContext);
@@ -75,15 +76,18 @@ export default function ImageDisplay() {
   };
 
   return (
-    <div className="image-display">
-      <div className="images-container">
+    <div className={styles.imageDisplay}>
+      <div className={styles.imagesContainer}>
         {images &&
           images.map((image) => (
-            <div className="image-box" key={image.id}>
-              <div className="image" onClick={() => showModal(image)}>
+            <div className={styles.imageBox} key={image.id}>
+              <div
+                className={styles.imageWrapper}
+                onClick={() => showModal(image)}
+              >
                 <img src={image.urls.small} alt={image.alt_description} />
               </div>
-              <div className="image-info">
+              <div className={styles.imageInfo}>
                 <h2>{image.description || image.alt_description}</h2>
                 <StyledDownloadButton
                   loading={isID == image.id && downloading}

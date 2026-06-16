@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { ImagesContext } from "../../../context/ImagesContext";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar() {
   const { setQuery, setButtonPages, setNumOfPages } = useContext(ImagesContext);
@@ -21,10 +22,10 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="search-bar">
+    <div className={styles.searchBar}>
       <box-icon
         name="search-alt-2"
-        className="icon"
+        className={styles.icon}
         onClick={handleSubmit}
       ></box-icon>
       <input

@@ -1,0 +1,17 @@
+.categories {
+  margin-top: 1rem;
+}
+
+.categoryButton {
+  font-size: var(--text-size);
+  background-color: var(--gray-color-300);
+  padding: 3px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+}
+
+.categoryButton:hover {
+  background-color: var(--gray-color-200);
+}
