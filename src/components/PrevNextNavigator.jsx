@@ -2,18 +2,19 @@ import {
   StyledNavigateBefore,
   StyledNavigateNext,
 } from "../utils/styles/navigationButtonsStyles";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ImagesContext } from "../context/ImagesContext";
 
 export default function PrevNextNavigator() {
-  const { setNumOfPages, numOfpages } = useContext(ImagesContext);
+  const { setNumOfPages, numOfpages, setButtonPages, buttonPages } =
+    useContext(ImagesContext);
 
   const hundlePages = (e) => {
     const num = parseInt(e.target.textContent);
     setNumOfPages(num);
 
     if (num >= buttonPages) {
-      setButtonPages(number + 1);
+      setButtonPages(num + 1);
     }
   };
 
