@@ -1,5 +1,5 @@
-import CategoryButton from "./CategoryButton";
-import SearchBar from "./SearchBar";
+import CategoryButton from "../ui/CategoryButton";
+import SearchBar from "../ui/SearchBar";
 
 export default function Cover() {
   return (

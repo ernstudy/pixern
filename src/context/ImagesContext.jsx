@@ -12,15 +12,9 @@ export const ImagesProvider = ({ children }) => {
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(() => {
-    // async function init() {
-    //   await loadImages();
-    // }
-
     if (!pageLoading) {
       loadImages();
     }
-
-    // setPageLoading(false);
 
     setTimeout(() => {
       setPageLoading(false);
@@ -29,7 +23,6 @@ export const ImagesProvider = ({ children }) => {
 
   const loadImages = async () => {
     const data = await fetchImages(query, numOfpages);
-    console.log("datos de api", data);
     setImages(data);
   };
 

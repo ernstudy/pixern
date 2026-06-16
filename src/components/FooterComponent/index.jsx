@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CopyRigthComponent() {
+export default function FooterComponent() {
   const year = new Date().getFullYear();
   return (
     <footer>

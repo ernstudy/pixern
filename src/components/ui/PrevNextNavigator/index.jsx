@@ -1,9 +1,9 @@
 import {
   StyledNavigateBefore,
   StyledNavigateNext,
-} from "../utils/styles/navigationButtonsStyles";
+} from "../../../utils/styles/navigationButtonsStyles";
 import { useContext, useState } from "react";
-import { ImagesContext } from "../context/ImagesContext";
+import { ImagesContext } from "../../../context/ImagesContext";
 
 export default function PrevNextNavigator() {
   const { setNumOfPages, numOfpages, setButtonPages, buttonPages } =

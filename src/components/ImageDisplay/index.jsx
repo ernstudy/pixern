@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import PrevNextNavigator from "./PrevNextNavigator";
+import PrevNextNavigator from "../ui/PrevNextNavigator";
 import { Close, Download } from "@mui/icons-material";
 import { Button, colors, styled } from "@mui/material";
-import GalleryImageModal from "./GalleryImageModal";
-import { StyledDownloadButton } from "../utils/styles/StyledDownloadButton";
-import { envConfig } from "../config/env.config";
-import { ImagesContext } from "../context/ImagesContext";
+import GalleryImageModal from "../GalleryImageModal";
+import { StyledDownloadButton } from "../../utils/styles/StyledDownloadButton";
+import { envConfig } from "../../config/env.config";
+import { ImagesContext } from "../../context/ImagesContext";
 
 export default function ImageDisplay() {
   const { images } = useContext(ImagesContext);

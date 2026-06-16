@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ImagesContext } from "../context/ImagesContext";
-import { categories } from "../utils/category.utils";
+import { ImagesContext } from "../../../context/ImagesContext";
+import { categories } from "../../../utils/category.utils";
 
 export default function CategoryButton() {
   const { setQuery, setButtonPages, setNumOfPages } = useContext(ImagesContext);

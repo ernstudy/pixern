@@ -1,10 +1,10 @@
 // css
 import "./App.css";
+import Cover from "./components/Cover";
+import FooterComponent from "./components/FooterComponent";
+import ImageDisplay from "./components/ImageDisplay";
 
 // components
-import Cover from "./components/Cover";
-import ImageDisplay from "./components/ImageDisplay";
-import CopyRigthComponent from "./components/CopyRigthComponent";
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
       <Cover />
       <ImageDisplay />
 
-      <CopyRigthComponent />
+      <FooterComponent />
     </>
   );
 }

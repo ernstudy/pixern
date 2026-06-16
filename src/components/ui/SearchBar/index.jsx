@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ImagesContext } from "../context/ImagesContext";
+import { ImagesContext } from "../../../context/ImagesContext";
 
 export default function SearchBar() {
   const { setQuery, setButtonPages, setNumOfPages } = useContext(ImagesContext);

@@ -1,7 +1,7 @@
 import { Close, Download } from "@mui/icons-material";
 import { Button, styled } from "@mui/material";
 import React from "react";
-import { StyledCloseButton } from "../utils/styles/StyledCloseButton";
+import { StyledCloseButton } from "../../utils/styles/StyledCloseButton";
 
 export default function GalleryImageModal({
   imageDetails,
