@@ -1,32 +1,24 @@
-import React, { useContext } from "react";
-import { InputContext } from "../context/InputContext";
+import { useContext } from "react";
+import { ImagesContext } from "../context/ImagesContext";
+import { categories } from "../utils/category.utils";
 
 export default function CategoryButton({ onSearch }) {
-  const { setInputValue, setButtonPages, setNumOfPages } =
-    useContext(InputContext);
+  const { setQuery, setButtonPages } = useContext(ImagesContext);
 
   const hundleCategories = (e) => {
-    const text = e.target.textContent;
-    setInputValue(text);
-    onSearch(text);
-    saveInputValue(text);
+    const category = e.target.textContent;
+    setQuery(category);
+    onSearch(category);
 
     // reset button pages to 5 and number of pages to 1
     setButtonPages(5);
-    setNumOfPages(1);
   };
 
-  // Stores the button text in localStorage
-  const saveInputValue = (text) => {
-    sessionStorage.setItem("item", text);
-  };
-
-  const buttonText = ["dog", "cat", "bird", "nature", "flower"];
   return (
     <div className="categories">
-      {buttonText.map((text, idx) => (
+      {categories.map((category, idx) => (
         <button onClick={hundleCategories} key={idx}>
-          {text}
+          {category}
         </button>
       ))}
     </div>
