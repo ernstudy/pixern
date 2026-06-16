@@ -9,8 +9,8 @@ import CopyRigthComponent from "./components/CopyRigthComponent";
 export default function App() {
   return (
     <>
-      <Cover onSearch={searchImage} />
-      <ImageDisplay imageData={imageData} />
+      <Cover />
+      <ImageDisplay />
 
       <CopyRigthComponent />
     </>
