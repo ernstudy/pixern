@@ -1,30 +1,20 @@
-import React, { useContext, useState } from "react";
-import { InputContext } from "../context/InputContext";
+import { useContext, useState } from "react";
+import { ImagesContext } from "../context/ImagesContext";
 
-export default function SearchBar({ onSearch }) {
-  const { inputValue, setInputValue, setNumOfPages, setButtonPages } =
-    useContext(InputContext);
-  const [text, setText] = useState("");
+export default function SearchBar() {
+  const { setQuery, setButtonPages } = useContext(ImagesContext);
+  const [inputQuery, setInputQuery] = useState("");
+
   // set text to onSearch & store it to setInputValue
   const handleSubmit = () => {
-    onSearch(text);
-    saveInputValue();
-
-    // reset button pages to 5 and number of pages to 1
+    setQuery(inputQuery);
+    // reset button pages to 5
     setButtonPages(5);
-    setNumOfPages(1);
   };
 
   // store  the user's entered text in state setText()
   const handleChange = (value) => {
-    console.log("handleChange value:", value);
-    setInputValue(value);
-    setText(value);
-  };
-
-  // Stores the user's entered text in localStorage
-  const saveInputValue = () => {
-    sessionStorage.setItem("item", text);
+    setInputQuery(value);
   };
 
   return (
