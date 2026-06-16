@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PrevNextNavigator from "./PrevNextNavigator";
 import { Close, Download } from "@mui/icons-material";
 import { Button, colors, styled } from "@mui/material";
 import GalleryImageModal from "./GalleryImageModal";
 import { StyledDownloadButton } from "../utils/styles/StyledDownloadButton";
 import { envConfig } from "../config/env.config";
+import { ImagesContext } from "../context/ImagesContext";
 
-export default function ImageDisplay({ imageData }) {
+export default function ImageDisplay() {
+  const { images } = useContext(ImagesContext);
   // ===== download image  =======
   const [downloading, setDownloading] = useState(false);
   const [isID, setIsID] = useState(null);
@@ -75,8 +77,8 @@ export default function ImageDisplay({ imageData }) {
   return (
     <div className="image-display">
       <div className="images-container">
-        {imageData &&
-          imageData.map((image) => (
+        {images &&
+          images.map((image) => (
             <div className="image-box" key={image.id}>
               <div className="image" onClick={() => showModal(image)}>
                 <img src={image.urls.small} alt={image.alt_description} />
