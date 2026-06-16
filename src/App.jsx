@@ -70,7 +70,7 @@ export default function App() {
     console.log("searching for:", inputText);
     try {
       const data = await fetch(
-        `${API_URL}?query=${inputText}&page=${numOfpages}&per_page=${per_page}&client_id=${API_KEY}`
+        `${API_URL}/search/photos?query=${inputText}&page=${numOfpages}&per_page=${per_page}&client_id=${API_KEY}`,
       );
       if (!data.ok)
         throw new Error(`Error: ${data.status} - ${data.statusText}`);
