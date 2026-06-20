@@ -45,5 +45,16 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--gray-color-900);
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 206, 69, 0.06) 0%,
+      transparent 18%
+    ),
+    linear-gradient(135deg, rgba(15, 15, 15, 1) 0%, rgba(28, 31, 42, 1) 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
   color: #fff;
 }
