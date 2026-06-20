@@ -1,75 +1,97 @@
 .galleryModal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.626);
-  visibility: collapse;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(8, 12, 18, 0.82);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease;
   z-index: 999;
 }
 
 .active {
   visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modalBox {
+  width: min(92vw, 760px);
+  max-height: 90vh;
   display: flex;
-  row-gap: 2rem;
-  column-gap: 3rem;
-  justify-content: flex-end;
-  max-width: 900px;
-  width: 100%;
-  background: linear-gradient(to top, #0f0f0f, #252526, #0f0f0f);
-  padding: 2rem 16px;
-  border-radius: 10px;
+  flex-direction: column;
+  gap: 1.75rem;
+  background: rgba(18, 22, 28, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.35);
+  border-radius: 28px;
+  padding: 1.75rem;
   overflow-y: auto;
-  height: 100%;
-  max-height: 95vh;
-  scrollbar-width: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  flex-wrap: nowrap;
+  backdrop-filter: blur(18px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-.imageAndTitle {
-  width: 100%;
-  max-width: 500px;
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .title h2 {
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 4vw, 2.8rem);
   color: var(--gray-color-100);
-  margin-bottom: 1rem;
+  margin: 0;
+  line-height: 1.05;
   text-transform: capitalize;
 }
 
-.modalImage img {
-  width: 100%;
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
-.modalImageButtons {
-  column-gap: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: start;
+.modalImage {
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 8px;
+}
+
+.modalImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
 }
 
 @media (max-width: 760px) {
   .modalBox {
-    flex-direction: column-reverse;
-    align-items: center;
     max-height: 100%;
-    padding: 3rem 16px;
+    padding: 1.25rem;
   }
 
-  .modalImageButtons {
-    max-width: 500px;
+  .modalHeader {
+    align-items: stretch;
+  }
+
+  .modalActions {
     width: 100%;
-    justify-content: end;
+    justify-content: space-between;
   }
 }

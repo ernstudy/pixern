@@ -47,25 +47,25 @@ export default function GalleryImageModal({
           })}
         >
           <div className={styles.modalBox}>
-            <div className={styles.imageAndTitle}>
+            <div className={styles.modalHeader}>
               <div className={styles.title}>
                 <h2>{imageData.title}</h2>
               </div>
-              <div className={styles.modalImage}>
-                <img src={imageData.image} alt={imageData.title} />
+              <div className={styles.modalActions}>
+                <StyledDownloadButton
+                  endIcon={<Download />}
+                  onClick={() => handleDownload(imageDetails)}
+                  loading={imageData.id == isID && downloading}
+                  loadingPosition="start"
+                >
+                  Download
+                </StyledDownloadButton>
+
+                <StyledCloseButton onClick={closeModal} />
               </div>
             </div>
-            <div className={styles.modalImageButtons}>
-              <StyledDownloadButton
-                endIcon={<Download />}
-                onClick={() => handleDownload(imageDetails)}
-                loading={imageData.id == isID && downloading}
-                loadingPosition="start"
-              >
-                Download
-              </StyledDownloadButton>
-
-              <StyledCloseButton onClick={closeModal} />
+            <div className={styles.modalImage}>
+              <img src={imageData.image} alt={imageData.title} />
             </div>
           </div>
         </div>
